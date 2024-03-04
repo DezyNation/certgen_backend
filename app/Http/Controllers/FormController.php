@@ -13,7 +13,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        return new GeneralResource(Form::paginate(20));
+        return new GeneralResource(Form::with('template')->paginate(20));
     }
 
     /**
@@ -24,14 +24,14 @@ class FormController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'cerificate' => ['required', 'boolean'],
-            'template_id' => ['required', 'exists:templates,id']
+            'certificate' => ['required', 'boolean'],
+            'template_id' => ['required_if:certificate,true', 'exists:templates,id'],
         ]);
 
         $data = Form::create([
             'title' => $request->title,
             'description' => $request->description,
-            'cerificate' => $request->cerificate,
+            'certificate' => $request->certificate,
             'template_id' => $request->template_id
         ]);
 
@@ -41,9 +41,9 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Form $form)
+    public function show(string $form)
     {
-        return new GeneralResource($form);
+        return new GeneralResource(Form::with('template')->findOrFail($form));
     }
 
     /**
@@ -51,7 +51,16 @@ class FormController extends Controller
      */
     public function update(Request $request, Form $form)
     {
-        //
+        $form->update([
+            'title' => $request->title ?? $form->title,
+            'description' => $request->description ?? $form->description,
+            'certificate' => $request->certificate ?? $form->certificate,
+            'template_id' => $request->template_id ?? $form->template_id,
+            'fields' => $request->fields ?? $form->fields,
+            'status' => $request->status ?? $form->status
+        ]);
+
+        return new GeneralResource($form);
     }
 
     /**
@@ -59,6 +68,7 @@ class FormController extends Controller
      */
     public function destroy(Form $form)
     {
-        //
+        $form->delete();
+        return response()->noContent();
     }
 }

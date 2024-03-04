@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('forms', function (Blueprint $table) {
-            //
+        Schema::table('templates', function (Blueprint $table) {
+            $table->decimal('workshop_x_coordinate');
+            $table->decimal('workshop_y_coordinate');
+            // $table->string('qr_color');
         });
     }
 
@@ -21,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('forms', function (Blueprint $table) {
+        Schema::table('templates', function (Blueprint $table) {
             //
         });
     }
