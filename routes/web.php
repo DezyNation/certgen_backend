@@ -1,6 +1,12 @@
 <?php
 
+use App\Models\Form;
+use App\Models\Submission;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Typography\FontFactory;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +23,12 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-require __DIR__.'/auth.php';
+Route::get('test', function () {
+return Submission::all();
+});
+
+Route::get('test1/{id}', function ($id) {
+
+});
+
+require __DIR__ . '/auth.php';

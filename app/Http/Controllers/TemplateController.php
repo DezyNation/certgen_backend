@@ -13,7 +13,7 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        return new GeneralResource(Template::all());
+        return new GeneralResource(Template::withCount(['forms'])->get());
     }
 
     /**
@@ -29,24 +29,24 @@ class TemplateController extends Controller
             'qr_y_coordinate' => ['required', 'numeric'],
             'workshop_x_coordinate' => ['required', 'numeric'],
             'workshop_y_coordinate' => ['required', 'numeric'],
-            'unique_x_coordinate' => ['nullable', 'numeric'],
-            'unique_y_coordinate' => ['nullable', 'numeric'],
-            'font_size' => ['required', 'numeric'],
+            'name_font_size' => ['required', 'numeric'],
+            'event_font_size' => ['required', 'numeric'],
             'font_name' => ['required', 'string'],
-            'qr_color' => ['required', 'hex_color'],
+            'qr_color' => ['required'],
         ]);
 
+        $path = $request->file('file')->store('template');
+
         $data = Template::create([
-            'path' => $request->file('file')->store('template'),
+            'path' => $path,
             'name_x_coordinate' => $request->name_x_coordinate,
             'name_y_coordinate' => $request->name_y_coordinate,
             'qr_x_coordinate' => $request->qr_x_coordinate,
             'qr_y_coordinate' => $request->qr_y_coordinate,
             'workshop_x_coordinate' => $request->workshop_x_coordinate,
             'workshop_y_coordinate' => $request->workshop_y_coordinate,
-            'unique_x_coordinate' => $request->unique_x_coordinate,
-            'unique_y_coordinate' => $request->unique_y_coordinate,
-            'font_size' => $request->font_size,
+            'font_size' => $request->name_font_size,
+            'event_font_size' => $request->event_font_size,
             'font_name' => $request->font_name,
             'qr_color' => $request->qr_color,
         ]);
@@ -89,6 +89,7 @@ class TemplateController extends Controller
      */
     public function destroy(Template $template)
     {
-        //
+        $template->delete();
+        return response()->noContent();
     }
 }
