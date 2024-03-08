@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\TemplateController;
@@ -26,6 +27,7 @@ Route::prefix('admin')->group(function () {
     Route::apiResource('forms', FormController::class);
     Route::apiResource('templates', TemplateController::class);
     Route::get('responses/{id}', [SubmissionController::class, 'responses']);
+    Route::get('overview', [Controller::class, 'overview']);
 });
 Route::apiResource('submissions', SubmissionController::class);
 
