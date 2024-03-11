@@ -22,11 +22,6 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
-    User::create([
-        'name'  => 'Admin',
-        'email' => 'admin@itasinc.com',
-        'password' => Hash::make('@40Kmph00')
-    ]);
     return ['iTasinc' => 'v1'];
 });
 
