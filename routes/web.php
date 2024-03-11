@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\Form;
+use App\Models\User;
 use App\Models\Submission;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Hash;
+use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
 use Intervention\Image\Typography\FontFactory;
 
 /*
@@ -20,6 +22,11 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
+    User::create([
+        'name'  => 'Admin',
+        'email' > 'admin@itasinc.com',
+        'password' => Hash::make('@40Kmph00')
+    ]);
     return ['iTasinc' => 'v1'];
 });
 
