@@ -20,15 +20,7 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
-
-Route::get('test', function () {
-return Submission::all();
-});
-
-Route::get('test1/{id}', function ($id) {
-
+    return ['iTasinc' => app()->version()];
 });
 
 require __DIR__ . '/auth.php';
