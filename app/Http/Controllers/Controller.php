@@ -17,7 +17,7 @@ class Controller extends BaseController
     {
         $forms = Form::count();
         $submissions = Submission::count();
-        $downloads = Submission::where('dowloaded')->count();
+        $downloads = Submission::where('downloaded', 1)->count();
         $students = Submission::distinct('student_id')->count();
 
         return new GeneralResource([

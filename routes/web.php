@@ -20,7 +20,7 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
-    return ['iTasinc' => app()->version()];
+    return ['iTasinc' => 'v1'];
 });
 
 require __DIR__ . '/auth.php';
