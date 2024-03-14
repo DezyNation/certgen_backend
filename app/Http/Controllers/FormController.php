@@ -23,7 +23,7 @@ class FormController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'event_name' => ['required_if:certificate,true', 'string', 'max:255'],
+            'event_name' => ['required_if:certificate,true', 'nullable', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'certificate' => ['required', 'boolean'],
             'template_id' => ['required_if:certificate,true', 'nullable', 'exists:templates,id'],
