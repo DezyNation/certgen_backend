@@ -26,7 +26,7 @@ class FormController extends Controller
             'event_name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'certificate' => ['required', 'boolean'],
-            'template_id' => ['required_if:certificate,true', 'exists:templates,id'],
+            'template_id' => ['required_if:certificate,true', 'nullable', 'exists:templates,id'],
             'bg_image' => ['nullable', 'image', 'max:8192']
         ]);
 
