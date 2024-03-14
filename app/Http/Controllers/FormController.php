@@ -27,7 +27,7 @@ class FormController extends Controller
             'description' => ['required', 'string'],
             'certificate' => ['required', 'boolean'],
             'template_id' => ['required_if:certificate,true', 'exists:templates,id'],
-            'bg_image' => ['nullable', 'image', 'max:2048']
+            'bg_image' => ['nullable', 'image', 'max:8192']
         ]);
 
         if ($request->hasFile('bg_image')) {

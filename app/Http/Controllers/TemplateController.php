@@ -22,7 +22,7 @@ class TemplateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => ['required', 'image', 'max:4096'],
+            'file' => ['required', 'image', 'max:8192'],
             'name_x_coordinate' => ['required', 'numeric'],
             'name_y_coordinate' => ['required', 'numeric'],
             'qr_x_coordinate' => ['required', 'numeric'],
