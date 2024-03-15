@@ -13,7 +13,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        return new GeneralResource(Form::with('template')->paginate(20));
+        return new GeneralResource(Form::with('template')->withCount('submissions')->paginate(20));
     }
 
     /**
