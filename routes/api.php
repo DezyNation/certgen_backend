@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\TemplateController;
+use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::prefix('admin')->group(function () {
     Route::apiResource('templates', TemplateController::class);
     Route::get('responses/{id}', [SubmissionController::class, 'responses']);
     Route::get('overview', [Controller::class, 'overview']);
+    Route::get('download', [SubmissionController::class, 'download']);
 });
 Route::apiResource('submissions', SubmissionController::class);
 
