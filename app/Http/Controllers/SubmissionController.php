@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ResponseExport;
 use App\Http\Resources\GeneralResource;
 use App\Models\Submission;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class SubmissionController extends Controller
@@ -15,6 +17,11 @@ class SubmissionController extends Controller
     public function index()
     {
         new GeneralResource(Submission::paginate(30));
+    }
+
+    public function download()
+    {
+        return Excel::download(new ResponseExport("responses.xlsx"));
     }
 
     /**
