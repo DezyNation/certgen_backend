@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function () {
     Route::apiResource('templates', TemplateController::class);
     Route::get('responses/{id}', [SubmissionController::class, 'responses']);
     Route::get('overview', [Controller::class, 'overview']);
-    Route::get('download', [SubmissionController::class, 'download']);
+    Route::get('download/{id?}', [SubmissionController::class, 'download']);
 });
 Route::apiResource('submissions', SubmissionController::class);
 

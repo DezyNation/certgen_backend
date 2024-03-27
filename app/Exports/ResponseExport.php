@@ -11,15 +11,30 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ResponseExport implements FromCollection, WithHeadings, WithStyles, ShouldAutoSize
 {
+    protected $id;
+
+    public function __construct($id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * @return \Illuminate\Support\Collection
      */
     public function collection()
     {
-        $data = DB::table('submissions')
+        if (is_null($this->id)) {
+            $data = DB::table('submissions')
+                ->join('forms', 'forms.id', '=', 'submissions.form_id')
+                ->select('submissions.id', 'forms.title', 'submissions.name', 'submissions.student_id', 'submissions.certificate_id', 'submissions.data', 'submissions.created_at')
+                ->get();
+        } else {
+            $data = DB::table('submissions')
             ->join('forms', 'forms.id', '=', 'submissions.form_id')
+            ->where('submissions.form_id', $this->id)
             ->select('submissions.id', 'forms.title', 'submissions.name', 'submissions.student_id', 'submissions.certificate_id', 'submissions.data', 'submissions.created_at')
             ->get();
+        }
 
         return $data;
     }
