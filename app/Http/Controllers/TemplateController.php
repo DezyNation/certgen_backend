@@ -33,11 +33,13 @@ class TemplateController extends Controller
             'event_font_size' => ['required', 'numeric'],
             'font_name' => ['required', 'string'],
             'qr_color' => ['required'],
+            'template_name' => ['required', 'string']
         ]);
 
         $path = $request->file('file')->store('template');
 
         $data = Template::create([
+            'template_name' => $request->template_name,
             'path' => $path,
             'name_x_coordinate' => $request->name_x_coordinate,
             'name_y_coordinate' => $request->name_y_coordinate,
