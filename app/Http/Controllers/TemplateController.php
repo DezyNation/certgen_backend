@@ -70,6 +70,7 @@ class TemplateController extends Controller
     public function update(Request $request, Template $template)
     {
         $template->update([
+            'template_name' => $request->template_name ?? $template->template_name,
             'name_x_coordinate' => $request->name_x_coordinate ?? $template->name_x_coordinate,
             'name_y_coordinate' => $request->name_y_coordinate ?? $template->name_y_coordinate,
             'qr_x_coordinate' => $request->qr_x_coordinate ?? $template->qr_x_coordinate,
@@ -78,8 +79,9 @@ class TemplateController extends Controller
             'workshop_y_coordinate' => $request->workshop_y_coordinate ?? $template->workshop_y_coordinate,
             'unique_x_coordinate' => $request->unique_x_coordinate ?? $template->unique_x_coordinate,
             'unique_y_coordinate' => $request->unique_y_coordinate ?? $template->unique_y_coordinate,
-            'font_size' => $request->font_size ?? $template->font_size,
+            'font_size' => $request->name_font_size ?? $template->font_size,
             'font_name' => $request->font_name ?? $template->font_name,
+            'event_font_size' => $request->event_font_size ?? $template->event_font_size,
             'qr_color' => $request->qr_color ?? $template->qr_color,
         ]);
 
