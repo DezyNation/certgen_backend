@@ -34,7 +34,7 @@ Route::prefix('admin')->group(function () {
 Route::apiResource('submissions', SubmissionController::class);
 
 Route::get('download-certificate/{id}', [CertificateController::class, 'show']);
-Route::get('sample-certificate/{id}', [CertificateController::class, 'show']);
+Route::get('sample-certificate/{id}', [CertificateController::class, 'sample']);
 Route::get('form/{id}', [FormController::class, 'activeForm']);
 Route::get('my-certificates/{id}', [CertificateController::class, 'myCertificates']);
 // ->middleware('auth:api');
