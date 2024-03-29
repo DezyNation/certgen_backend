@@ -60,6 +60,8 @@ class CertificateController extends Controller
         $img->text($submission->name, $template->name_x_coordinate, $template->name_y_coordinate, function (FontFactory $font) use ($template) {
             $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
             $font->size($template->font_size);
+            $font->align('center');
+            $font->valign('center');
         })->text(
             $form->event_name,
             $template->workshop_x_coordinate,
