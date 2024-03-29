@@ -73,7 +73,7 @@ class CertificateController extends Controller
         )->text(
             $submission->certificate_id,
             $template->qr_x_coordinate,
-            $template->qr_y_coordinate + 80,
+            $template->qr_y_coordinate + 60,
             function (FontFactory $font) use ($template) {
                 $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
                 $font->size(12);
@@ -118,6 +118,8 @@ class CertificateController extends Controller
         $img->text("John Doe", $template->name_x_coordinate, $template->name_y_coordinate, function (FontFactory $font) use ($template) {
             $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
             $font->size($template->font_size);
+            $font->align('center');
+            $font->valign('center');
         })->text(
             $form->event_name,
             $template->workshop_x_coordinate,
@@ -129,7 +131,7 @@ class CertificateController extends Controller
         )->text(
             "#####",
             $template->qr_x_coordinate,
-            $template->qr_y_coordinate,
+            $template->qr_y_coordinate+60,
             function (FontFactory $font) use ($template) {
                 $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
                 $font->size(12);
