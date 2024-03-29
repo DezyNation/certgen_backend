@@ -31,7 +31,7 @@ class TemplateController extends Controller
             'workshop_y_coordinate' => ['required', 'numeric'],
             'name_font_size' => ['required', 'numeric'],
             'event_font_size' => ['required', 'numeric'],
-            'font_name' => ['required', 'string'],
+            // 'font_name' => ['required', 'string'],
             'qr_color' => ['required'],
             'template_name' => ['required', 'string']
         ]);
@@ -49,7 +49,7 @@ class TemplateController extends Controller
             'workshop_y_coordinate' => $request->workshop_y_coordinate,
             'font_size' => $request->name_font_size,
             'event_font_size' => $request->event_font_size,
-            'font_name' => $request->font_name,
+            'font_name' => $request->font_name ?? 'sans',
             'qr_color' => $request->qr_color,
         ]);
 
