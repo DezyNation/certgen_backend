@@ -121,7 +121,7 @@ class CertificateController extends Controller
             $font->align('center');
             $font->valign('center');
         })->text(
-            $form->event_name,
+            "Test Event",
             $template->workshop_x_coordinate,
             $template->workshop_y_coordinate,
             function (FontFactory $font) use ($template) {
