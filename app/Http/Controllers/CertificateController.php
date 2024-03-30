@@ -79,7 +79,7 @@ class CertificateController extends Controller
                 $font->size(12);
                 $font->color($template->qr_color);
             }
-        )->place($path, 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
+        )->place($manager->read($path)->resize($template->qr_dimension, $template->qr_dimension), 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
 
         $image = $img->toPng(90);
         $headers = [
@@ -137,7 +137,7 @@ class CertificateController extends Controller
                 $font->size(12);
                 $font->color($template->qr_color);
             }
-        )->place($manager->read($path)->resize(20, 20), 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
+        )->place($manager->read($path)->resize($template->qr_dimension, $template->qr_dimension), 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
 
         $image = $img->toPng(90);
         $headers = [
