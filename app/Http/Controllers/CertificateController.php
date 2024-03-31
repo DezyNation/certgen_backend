@@ -104,7 +104,7 @@ class CertificateController extends Controller
 
         $form = Form::find($submission->form_id);
         $template = $submission->template();
-        $qrcode = base64_encode(QrCode::format('svg')->size($template->qr_dimension)->generate('string'));
+        $qrcode = base64_encode(QrCode::format('png')->size($template->qr_dimension)->generate('string'));
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
