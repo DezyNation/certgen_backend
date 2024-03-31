@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use App\Models\Form;
 use App\Models\User;
 use App\Models\Submission;
@@ -22,9 +23,10 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
-    return view('certificate');
     return ['iTasinc' => 'v1'];
 });
+
+Route::get('pdf/{id}', [CertificateController::class, 'pdf']);
 
 
 require __DIR__ . '/auth.php';

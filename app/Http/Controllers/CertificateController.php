@@ -94,6 +94,35 @@ class CertificateController extends Controller
         }, 200, $headers);
     }
 
+    public function pdf(string $id)
+    {
+        $submission = Submission::findOrFail($id);
+        if (!$submission->approved) {
+            return response()->json(['message' => 'Certificate not found.'], 404);
+        }
+
+        $form = Form::find($submission->form_id);
+        $template = $submission->template();
+
+        $data = [
+            'image' => $template->path,
+            'qr_size' => $template->qr_dimension,
+            'cerificate_id' => 2,
+            'user_name' => $submission->name,
+            'event_name' => $form->event_name,
+            'qr_y' => $template->qr_y_coordinate,
+            'qr_x' => $template->qr_x_coordinate,
+            'name_y' => $template->name_y_coordinate,
+            'name_x' => $template->name_x_coordinate,
+            'name_size' => $template->font_size,
+            'event_y' => $template->workshop_y_coordinate,
+            'event_x' => $template->workshop_x_coordinate,
+            'event_size' => 12,
+        ];
+
+        return view('certificate', compact($data));
+    }
+
     public function sample(Request $request, string $id)
     {
         // $submission = Submission::findOrFail($id);
@@ -131,7 +160,7 @@ class CertificateController extends Controller
         )->text(
             "#####",
             $template->qr_x_coordinate,
-            $template->qr_y_coordinate+60,
+            $template->qr_y_coordinate + 60,
             function (FontFactory $font) use ($template) {
                 $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
                 $font->size(12);
@@ -154,7 +183,7 @@ class CertificateController extends Controller
     {
         $submission = Submission::where(['approved' => 1])->where(function ($q) use ($id) {
             $q->where('student_id', $id)
-            ->orWhere('email', $id);
+                ->orWhere('email', $id);
         })->with('form.template')->paginate(30);
         return new GeneralResource($submission);
     }
