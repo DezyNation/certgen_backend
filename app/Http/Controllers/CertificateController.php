@@ -120,7 +120,7 @@ class CertificateController extends Controller
             'event_size' => 12,
         ];
 
-        return view('certificate', compact($data));
+        return view('certificate', $data);
     }
 
     public function sample(Request $request, string $id)
