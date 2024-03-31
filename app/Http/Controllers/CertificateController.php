@@ -118,7 +118,8 @@ class CertificateController extends Controller
             'event_x' => $template->workshop_x_coordinate,
             'event_size' => 12,
         ];
-
+        $pdf = Pdf::loadView('certificate', $data);
+        return $pdf->download("certificate.pdf");
         return view('certificate', $data);
     }
 
