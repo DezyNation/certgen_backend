@@ -34,8 +34,8 @@
     }
     .qr {
         position: absolute;
-        top: {{$qr_y}};
-        left: {{$qr_x}};
+        top: {{$qr_y}}px;
+        left: {{$qr_x}}px;
         width: {{$qr_size}}px;
         background-color: #FFF;
         color: #000;
@@ -43,15 +43,15 @@
 
     .user_name {
         position: absolute;
-        top: {{$name_y}};
-        left: {{$name_x}};
-        font-size: {{$name_size}};
+        top: {{$name_y}}px;
+        left: {{$name_x}}px;
+        font-size: {{$name_size}}px;
     }
 
     .event_name {
         position: absolute;
-        top: {{$event_y}};
-        left: {{$event_x}};
-        font-size: {{$event_size}};
+        top: {{$event_y}}px;
+        left: {{$event_x}}px;
+        font-size: {{$event_size}}px;
     }
 </style>
