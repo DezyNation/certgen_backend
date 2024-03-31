@@ -23,7 +23,7 @@
 </html>
 
 <style>
-    @page { size: 1500px 1600px; }
+    @page { size: 1500px 800px; }
 
     *{
         margin: 0;
