@@ -121,7 +121,7 @@ class CertificateController extends Controller
             'event_size' => 12,
             'qrcode' => $qrcode
         ];
-        $pdf = Pdf::setPaper([1500, 1061, 1500, 1061])->loadView('certificate', $data);
+        $pdf = Pdf::setPaper([0, 0, 1500, 1061])->loadView('certificate', $data);
         return $pdf->stream();
         return view('certificate', $data);
     }
