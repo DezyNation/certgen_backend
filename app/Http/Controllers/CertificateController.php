@@ -104,11 +104,11 @@ class CertificateController extends Controller
 
         $form = Form::find($submission->form_id);
         $template = $submission->template();
-        $qrcode = base64_encode(QrCode::format('png')->size($template->qr_dimension)->generate('string'));
+        $qrcode = base64_encode(QrCode::format('png')->size($template->qr_dimension)->generate("https://certificate.itasinc.in/verify?cert_id={$submission->cerificate_id}"));
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
-            'cerificate_id' => 2,
+            'cerificate_id' => $submission->id,
             'user_name' => $submission->name,
             'event_name' => $form->event_name,
             'qr_y' => $template->qr_y_coordinate,
