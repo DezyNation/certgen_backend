@@ -118,7 +118,7 @@ class CertificateController extends Controller
             'name_size' => $template->font_size,
             'event_y' => $template->workshop_y_coordinate,
             'event_x' => $template->workshop_x_coordinate,
-            'event_size' => 12,
+            'event_size' => $template->event_font_size,
             'qrcode' => $qrcode
         ];
         $pdf = Pdf::loadView('certificate', $data);
@@ -146,7 +146,7 @@ class CertificateController extends Controller
             'name_size' => $template->font_size,
             'event_y' => $template->workshop_y_coordinate,
             'event_x' => $template->workshop_x_coordinate,
-            'event_size' => 12,
+            'event_size' => $template->event_font_size,
             'qrcode' => $qrcode
         ];
         $pdf = Pdf::loadView('certificate', $data);
