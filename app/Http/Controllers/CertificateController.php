@@ -118,8 +118,8 @@ class CertificateController extends Controller
             'event_x' => $template->workshop_x_coordinate,
             'event_size' => 12,
         ];
-        $pdf = Pdf::setPaper([0, 0, 1500, 1061], 'landscape')->loadView('certificate', $data);
-        return $pdf->stream();
+        // $pdf = Pdf::setPaper([0, 0, 1500, 1061], 'landscape')->loadView('certificate', $data);
+        // return $pdf->stream();
         return view('certificate', $data);
     }
 
