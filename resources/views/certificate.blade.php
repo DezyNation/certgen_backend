@@ -10,7 +10,7 @@
 
 <body>
     <div class="certificate">
-        <img src={{ asset($data['image']) }}>
+        <img src={{ asset($image) }}>
         <div class="qr">
             <p style="text-align: center; font-size: 12px; margin-bottom: 4px;">Scan QR Code to verify certificate</p>
             {{QrCode::size($data['qr_size'])->generate(`https://certificate.itasinc.in/verify?cert_id={$data['cerificate_id']}`)}}
