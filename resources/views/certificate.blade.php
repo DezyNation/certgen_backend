@@ -7,6 +7,20 @@
     <title>Cerificate</title>
 </head>
 <body>
-    <img src="https://piktochart.com/wp-content/uploads/2022/11/large-154-600x424.jpg" style="width: 100vw" alt="">
+    <div class="certificate">
+    </div>
+    <div class="">
+    {{QrCode::size(100)->generate('https://google.com')}}
+</div>
+    {{-- <img src="" height="" alt=""> --}}
 </body>
 </html>
+
+<style>
+.certificate {
+  width: 100vw;
+  height: 100vh;
+  background: url("https://i.pinimg.com/736x/11/56/79/11567993d33bc440f521f1e868f187db.jpg") no-repeat;
+  background-size: 100% 100%;
+     }
+</style>

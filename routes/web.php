@@ -22,6 +22,7 @@ use Intervention\Image\Typography\FontFactory;
 */
 
 Route::get('/', function () {
+    return view('certificate');
     return ['iTasinc' => 'v1'];
 });
 
