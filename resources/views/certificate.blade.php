@@ -13,10 +13,10 @@
         <img src={{ asset($image) }}>
         <div class="qr">
             <p style="text-align: center; font-size: 12px; margin-bottom: 4px;">Scan QR Code to verify certificate</p>
-            {{QrCode::size($data['qr_size'])->generate(`https://certificate.itasinc.in/verify?cert_id={$data['cerificate_id']}`)}}
+            {{QrCode::size($qr_size)->generate(`https://certificate.itasinc.in/verify?cert_id={$cerificate_id}`)}}
         </div>
-        <h1 class="user_name">{{$data['user_name']}}</h1>
-        <h5 class="event_name">{{$data['event_name']}}</h5>
+        <h1 class="user_name">{{$user_name}}</h1>
+        <h5 class="event_name">{{$event_name}}</h5>
     </div>
 </body>
 
@@ -34,24 +34,24 @@
     }
     .qr {
         position: absolute;
-        top: {{$data['qr_y']}};
-        left: {{$data['qr_x']}};
-        width: {{$data['qr_size']}}px;
+        top: {{$qr_y}};
+        left: {{$qr_x}};
+        width: {{$qr_size}}px;
         background-color: #FFF;
         color: #000;
     }
 
     .user_name {
         position: absolute;
-        top: {{$data['name_y']}};
-        left: {{$data['name_x']}};
-        font-size: {{$data['name_size']}};
+        top: {{$name_y}};
+        left: {{$name_x}};
+        font-size: {{$name_size}};
     }
 
     .event_name {
         position: absolute;
-        top: {{$data['event_y']}};
-        left: {{$data['event_x']}};
-        font-size: {{$data['event_size']}};
+        top: {{$event_y}};
+        left: {{$event_x}};
+        font-size: {{$event_size}};
     }
 </style>
