@@ -103,7 +103,6 @@ class CertificateController extends Controller
 
         $form = Form::find($submission->form_id);
         $template = $submission->template();
-        return $template->qr_dimension;
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
