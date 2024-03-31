@@ -13,6 +13,7 @@ use Illuminate\Database\Capsule\Manager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Typography\FontFactory;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CertificateController extends Controller
 {
@@ -103,6 +104,7 @@ class CertificateController extends Controller
 
         $form = Form::find($submission->form_id);
         $template = $submission->template();
+        $qrcode = base64_encode(QrCode::format('svg')->size($template->qr_dimension)->errorCorrection('H')->generate('string'));
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
@@ -117,6 +119,7 @@ class CertificateController extends Controller
             'event_y' => $template->workshop_y_coordinate,
             'event_x' => $template->workshop_x_coordinate,
             'event_size' => 12,
+            'qrcode' => $qrcode
         ];
         // $pdf = Pdf::setPaper([0, 0, 1500, 1061], 'landscape')->loadView('certificate', $data);
         // return $pdf->stream();

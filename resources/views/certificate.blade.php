@@ -13,7 +13,7 @@
         <img src={{ asset($image) }}>
         <div class="qr">
             <p style="text-align: center; font-size: 12px; margin-bottom: 4px;">Scan QR Code to verify certificate</p>
-            {{QrCode::size($qr_size)->generate("https://certificate.itasinc.in/verify?cert_id={$cerificate_id}")}}
+            <image src="data:image/png;base64, {!! $qrcode !!}">
         </div>
         <h1 class="user_name">{{$user_name}}</h1>
         <h5 class="event_name">{{$event_name}}</h5>
