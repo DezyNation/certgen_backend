@@ -121,7 +121,7 @@ class CertificateController extends Controller
             'event_size' => 12,
             'qrcode' => $qrcode
         ];
-        $pdf = Pdf::setPaper([0, 0, 1500, 800])->loadView('certificate', $data);
+        $pdf = Pdf::loadView('certificate', $data);
         return $pdf->stream();
         return view('certificate', $data);
     }
@@ -132,7 +132,7 @@ class CertificateController extends Controller
 
         $template = Template::findOrFail($id);
         $form = Form::where('template_id', $id)->first();
-        $qrcode = base64_encode(QrCode::format('png')->size($template->qr_dimension)->generate("https://certificate.itasinc.in/verify?cert_id={$submission->cerificate_id}"));
+        $qrcode = base64_encode(QrCode::format('png')->size($template->qr_dimension)->generate("https://certificate.itasinc.in/verify?cert_id=24"));
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
