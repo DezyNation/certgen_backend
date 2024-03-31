@@ -119,7 +119,7 @@ class CertificateController extends Controller
             'event_size' => 12,
         ];
         $pdf = Pdf::loadView('certificate', $data);
-        return $pdf->download("certificate.pdf");
+        return $pdf->stream();
         return view('certificate', $data);
     }
 
