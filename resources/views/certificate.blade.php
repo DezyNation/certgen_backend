@@ -31,6 +31,7 @@
     }
     .certificate {
         position: relative;
+        margin: 0 auto;
     }
     .qr {
         position: absolute;
