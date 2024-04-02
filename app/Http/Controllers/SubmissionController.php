@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 class SubmissionController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth:api', ['except' => ['show']]);
     }
 
@@ -60,7 +61,9 @@ class SubmissionController extends Controller
      */
     public function show(string $id)
     {
-        $data = Submission::where('certificate_id', $id)->get();
+        $data = Submission::where('certificate_id', $id)->with(['form' =>  function ($q) {
+            $q->select('event_name');
+        }])->get();
         return new GeneralResource($data);
     }
 
