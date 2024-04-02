@@ -35,65 +35,65 @@ class CertificateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $submission = Submission::findOrFail($id);
-        if (!$submission->approved) {
-            return response()->json(['message' => 'Certificate not found.'], 404);
-        }
-        $manager = new ImageManager(
-            new Driver()
-        );
-        $form = Form::find($submission->form_id);
-        $template = $submission->template();
+    // public function show(string $id)
+    // {
+    //     $submission = Submission::findOrFail($id);
+    //     if (!$submission->approved) {
+    //         return response()->json(['message' => 'Certificate not found.'], 404);
+    //     }
+    //     $manager = new ImageManager(
+    //         new Driver()
+    //     );
+    //     $form = Form::find($submission->form_id);
+    //     $template = $submission->template();
 
-        switch ($template->qr_color) {
-            case 'white':
-                $path = storage_path('app/qr/white.png');
-                break;
+    //     switch ($template->qr_color) {
+    //         case 'white':
+    //             $path = storage_path('app/qr/white.png');
+    //             break;
 
-            default:
-                $path = storage_path('app/qr/black.png');
-                break;
-        }
+    //         default:
+    //             $path = storage_path('app/qr/black.png');
+    //             break;
+    //     }
 
-        $img = $manager->read(storage_path("app/{$template->path}"));
-        $img->text($submission->name, $template->name_x_coordinate, $template->name_y_coordinate, function (FontFactory $font) use ($template) {
-            $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
-            $font->size($template->font_size);
-            $font->align('center');
-            $font->valign('center');
-        })->text(
-            $form->event_name,
-            $template->workshop_x_coordinate,
-            $template->workshop_y_coordinate,
-            function (FontFactory $font) use ($template) {
-                $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
-                $font->size($template->event_font_size);
-            }
-        )->text(
-            $submission->certificate_id,
-            $template->qr_x_coordinate,
-            $template->qr_y_coordinate + 60,
-            function (FontFactory $font) use ($template) {
-                $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
-                $font->size(12);
-                $font->color($template->qr_color);
-            }
-        )->place($manager->read($path)->resize($template->qr_dimension, $template->qr_dimension), 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
+    //     $img = $manager->read(storage_path("app/{$template->path}"));
+    //     $img->text($submission->name, $template->name_x_coordinate, $template->name_y_coordinate, function (FontFactory $font) use ($template) {
+    //         $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
+    //         $font->size($template->font_size);
+    //         $font->align('center');
+    //         $font->valign('center');
+    //     })->text(
+    //         $form->event_name,
+    //         $template->workshop_x_coordinate,
+    //         $template->workshop_y_coordinate,
+    //         function (FontFactory $font) use ($template) {
+    //             $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
+    //             $font->size($template->event_font_size);
+    //         }
+    //     )->text(
+    //         $submission->certificate_id,
+    //         $template->qr_x_coordinate,
+    //         $template->qr_y_coordinate + 60,
+    //         function (FontFactory $font) use ($template) {
+    //             $font->file(storage_path('app/public/OpenSans-VariableFont_wdth,wght.ttf'));
+    //             $font->size(12);
+    //             $font->color($template->qr_color);
+    //         }
+    //     )->place($manager->read($path)->resize($template->qr_dimension, $template->qr_dimension), 'top-left', $template->qr_x_coordinate, $template->qr_y_coordinate, 100);
 
-        $image = $img->toPng(90);
-        $headers = [
-            'Content-Type' => 'image/png',
-            'Content-Disposition' => 'attachment; filename=' . 'test.png',
-        ];
-        $submission->update([
-            'downloaded' => 1
-        ]);
-        return response()->stream(function () use ($image) {
-            echo $image;
-        }, 200, $headers);
-    }
+    //     $image = $img->toPng(90);
+    //     $headers = [
+    //         'Content-Type' => 'image/png',
+    //         'Content-Disposition' => 'attachment; filename=' . 'test.png',
+    //     ];
+    //     $submission->update([
+    //         'downloaded' => 1
+    //     ]);
+    //     return response()->stream(function () use ($image) {
+    //         echo $image;
+    //     }, 200, $headers);
+    // }
 
     public function pdf(string $id)
     {

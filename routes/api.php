@@ -26,15 +26,15 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::prefix('admin')->group(function () {
     Route::apiResource('forms', FormController::class);
-    Route::apiResource('templates', TemplateController::class);
-    Route::get('responses/{id}', [SubmissionController::class, 'responses']);
-    Route::get('overview', [Controller::class, 'overview']);
-    Route::get('download/{id?}', [SubmissionController::class, 'download']);
+    Route::apiResource('templates', TemplateController::class)->middleware('auth:api');
+    Route::get('responses/{id}', [SubmissionController::class, 'responses'])->middleware('auth:api');
+    Route::get('overview', [Controller::class, 'overview'])->middleware('auth:api');
+    Route::get('download/{id?}', [SubmissionController::class, 'download'])->middleware('auth:api');
 });
 Route::apiResource('submissions', SubmissionController::class);
 
-Route::get('download-certificate/{id}', [CertificateController::class, 'show']);
-Route::get('sample-certificate/{id}', [CertificateController::class, 'sample']);
+// Route::get('download-certificate/{id}', [CertificateController::class, 'show']);
+Route::get('sample-certificate/{id}', [CertificateController::class, 'sample'])->middleware('auth:api');
 Route::get('form/{id}', [FormController::class, 'activeForm']);
 Route::get('my-certificates/{id}', [CertificateController::class, 'myCertificates']);
 // ->middleware('auth:api');
