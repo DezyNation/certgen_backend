@@ -45,7 +45,7 @@ class SubmissionController extends Controller
         }
 
         $data = Submission::create([
-            'certificate_id' => uniqid(),
+            'certificate_id' => uniqid("itas"),
             'student_id' => $request->student_id,
             'form_id' => $request->form_id,
             'data' => json_encode($request->all()),

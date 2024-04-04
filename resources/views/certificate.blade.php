@@ -14,6 +14,7 @@
         <div class="qr">
             <p style="text-align: center; font-size: 12px; margin-bottom: 4px;">Scan QR Code to verify certificate</p>
             <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
+            <p style="text-align: center; font-size: 12px; margin-top: 4px; text-transform: uppercase;">{{$certificate_id}}</p>
         </div>
         <h1 class="user_name">{{$user_name}}</h1>
         <h5 class="event_name">{{$event_name}}</h5>
