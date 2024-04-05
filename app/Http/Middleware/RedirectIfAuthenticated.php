@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(env('FRONTEND_URL').'/admin/dashboard');
+                return redirect('https://certificate.itasinc.in/admin/dashboard');
             }
         }
 
