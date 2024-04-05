@@ -108,7 +108,7 @@ class CertificateController extends Controller
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
-            'cerificate_id' => $submission->certificate_id,
+            'certificate_id' => $submission->certificate_id,
             'user_name' => $submission->name,
             'event_name' => $form->event_name,
             'qr_y' => $template->qr_y_coordinate,
