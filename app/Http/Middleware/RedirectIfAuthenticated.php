@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(config('app.frontend_url').'/admin/dashboard');
+                return redirect(env('FRONTEND_URL').'/admin/dashboard');
             }
         }
 
