@@ -136,7 +136,7 @@ class CertificateController extends Controller
         $data = [
             'image' => $template->path,
             'qr_size' => $template->qr_dimension,
-            'cerificate_id' => "24",
+            'certificate_id' => "24",
             'user_name' => "John Doe",
             'event_name' => $form->event_name,
             'qr_y' => $template->qr_y_coordinate,
