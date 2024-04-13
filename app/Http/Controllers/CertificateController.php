@@ -119,7 +119,9 @@ class CertificateController extends Controller
             'event_y' => $template->workshop_y_coordinate,
             'event_x' => $template->workshop_x_coordinate,
             'event_size' => $template->event_font_size,
-            'qrcode' => $qrcode
+            'qrcode' => $qrcode,
+            'event_name_color' => $template->event_name_color,
+            'receiver_name_color' => $template->receiver_name_color,
         ];
         $pdf = Pdf::loadView('certificate', $data);
         return $pdf->stream();
@@ -147,7 +149,9 @@ class CertificateController extends Controller
             'event_y' => $template->workshop_y_coordinate,
             'event_x' => $template->workshop_x_coordinate,
             'event_size' => $template->event_font_size,
-            'qrcode' => $qrcode
+            'qrcode' => $qrcode,
+            'event_name_color' => $template->event_name_color,
+            'receiver_name_color' => $template->receiver_name_color,
         ];
         $pdf = Pdf::loadView('certificate', $data);
         return $pdf->stream();

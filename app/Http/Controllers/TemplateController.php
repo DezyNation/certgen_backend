@@ -52,6 +52,8 @@ class TemplateController extends Controller
             'font_name' => $request->font_name ?? 'sans',
             'qr_color' => $request->qr_color,
             'qr_dimension' => $request->qr_dimension,
+            'event_name_color' => $request->event_name_color,
+            'receiver_name_color' => $request->receiver_name_color,
         ]);
 
         return new GeneralResource($data);
@@ -85,6 +87,8 @@ class TemplateController extends Controller
             'event_font_size' => $request->event_font_size ?? $template->event_font_size,
             'qr_color' => $request->qr_color ?? $template->qr_color,
             'qr_dimension' => $request->qr_dimension ?? $template->qr_dimension,
+            'event_name_color' => $request->event_name_color ?? $template->event_name_color,
+            'receiver_name_color' => $request->receiver_name_color ?? $template->receiver_name_color,
         ]);
 
         return new GeneralResource($template);

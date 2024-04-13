@@ -48,6 +48,7 @@
         top: {{$name_y}}px;
         left: {{$name_x}}px;
         font-size: {{$name_size}}px;
+        color: {{receiver_name_color}};
     }
 
     .event_name {
@@ -55,5 +56,6 @@
         top: {{$event_y}}px;
         left: {{$event_x}}px;
         font-size: {{$event_size}}px;
+        color: {{receiver_name_color}};
     }
 </style>
