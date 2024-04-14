@@ -34,6 +34,10 @@
         position: relative;
     }
     .qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         position: absolute;
         top: {{$qr_y}}px;
         left: {{$qr_x}}px;
