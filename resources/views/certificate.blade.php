@@ -35,28 +35,19 @@
         box-sizing: border-box;
     }
 
+    @font-face {
+        font-family: Poppins;
+        src: url('/Poppins.ttf');
+    }
+
     .certificate {
         position: relative;
     }
 
     .qr {
         position: absolute;
-
-        top: {
-                {
-                $qr_y
-            }
-        }
-
-        px;
-
-        left: {
-                {
-                $qr_x
-            }
-        }
-
-        px;
+        top: {{$qr_y}}px;
+        left: {{$qr_x}}px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
@@ -68,73 +59,17 @@
 
     .user_name {
         position: absolute;
-
-        top: {
-                {
-                $name_y
-            }
-        }
-
-        px;
-
-        left: {
-                {
-                $name_x
-            }
-        }
-
-        px;
-
-        font-size: {
-                {
-                $name_size
-            }
-        }
-
-        px;
-
-        color: {
-                {
-                $receiver_name_color
-            }
-        }
-
-        ;
+        top: {{$name_y}}px;
+        left: {{$name_x}}px;
+        font-size: {{$name_size}}px;
+        color: {{$receiver_name_color}};
     }
 
     .event_name {
         position: absolute;
-
-        top: {
-                {
-                $event_y
-            }
-        }
-
-        px;
-
-        left: {
-                {
-                $event_x
-            }
-        }
-
-        px;
-
-        font-size: {
-                {
-                $event_size
-            }
-        }
-
-        px;
-
-        color: {
-                {
-                $event_name_color
-            }
-        }
-
-        ;
+        top: {{$event_y}}px;
+        left: {{$event_x}}px;
+        font-size: {{$event_size}}px;
+        color: {{$event_name_color}};
     }
 </style>
