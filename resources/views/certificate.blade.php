@@ -37,7 +37,7 @@
 
     @font-face {
         font-family: Poppins;
-        src: url('/Poppins.ttf');
+        src: url('https://api.itasinc.in/Poppins.ttf');
     }
 
     .certificate {
