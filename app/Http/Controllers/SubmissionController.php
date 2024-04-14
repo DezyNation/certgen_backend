@@ -36,17 +36,17 @@ class SubmissionController extends Controller
      */
     public function store(Request $request)
     {
-        $bool = Submission::where('form_id', $request->form_id)->whereNotNull('student_id')->whereNotNull('email')->where(function ($q) use ($request) {
-            $q->where('email', $request->email)
-                ->orWhere('student_id', $request->student_id);
-        })->exists();
+
+        $request->validate(['email' => 'required|email']);
+
+        $bool = Submission::where('form_id', $request->form_id)->where('email', $request->email)->exists();
 
         if ($bool) {
             abort(422, "Form already submitted.");
         }
 
         $data = Submission::create([
-            'certificate_id' => "iTAS" . Str::random(8),
+            'certificate_id' => "iTAS" . "-" . Str::random(8),
             'student_id' => $request->student_id,
             'form_id' => $request->form_id,
             'data' => json_encode($request->all()),
