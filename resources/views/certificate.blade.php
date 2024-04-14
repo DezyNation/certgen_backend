@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cerificate</title>
-    
 </head>
 
 <body>
@@ -30,10 +29,6 @@
         size: 1500px 1061px;
     }
 
-    @font-face {
-        font-family: 'Poppins';
-        src: url('https://api.itasinc.in/Poppins.ttf');
-    }
     * {
         margin: 0;
         padding: 0;
@@ -105,9 +100,6 @@
         }
 
         ;
-        font-family: 'Poppins',
-        sans-serif;
-        font-weight: 500;
     }
 
     .event_name {
@@ -144,8 +136,5 @@
         }
 
         ;
-        font-family: 'Poppins',
-        sans-serif;
-        font-weight: 500;
     }
 </style>
