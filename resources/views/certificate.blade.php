@@ -12,7 +12,9 @@
     <div class="certificate">
         <img src={{ asset($image) }}>
         <div class="qr">
-            <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
+            <div style="width: 100%; display: grid; place-content: center;">
+                <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
+            </div>
             <p style="text-align: center; font-size: 12px; margin-top: 4px; text-transform: uppercase;">{{$certificate_id}}</p>
         </div>
         <h1 class="user_name">{{$user_name}}</h1>
