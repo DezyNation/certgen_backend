@@ -32,7 +32,7 @@
 
     @font-face {
         font-family: 'Poppins';
-        src: url('/public/Poppins.ttf');
+        src: url('https://api.itasinc.in/Poppins.ttf');
     }
     * {
         margin: 0;
