@@ -46,7 +46,7 @@ class SubmissionController extends Controller
         }
 
         $data = Submission::create([
-            'certificate_id' => "iTAS" . "-" . Str::random(8),
+            'certificate_id' => "iTAS" . "-" . Str::random(7),
             'student_id' => $request->student_id,
             'form_id' => $request->form_id,
             'data' => json_encode($request->all()),
