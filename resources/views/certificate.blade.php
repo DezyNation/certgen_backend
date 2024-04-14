@@ -12,7 +12,7 @@
     <div class="certificate">
         <img src={{ asset($image) }}>
         <div class="qr">
-            <img src="data:image/png;base64, {{ $qrcode}}" style="width: {{$qr_size}}px;" alt="QR Code">
+            <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
             <p style="text-align: center; font-size: 12px; margin-top: 4px; text-transform: uppercase;">{{$certificate_id}}</p>
         </div>
         <h1 class="user_name">{{$user_name}}</h1>
@@ -34,16 +34,19 @@
         position: relative;
     }
     .qr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         position: absolute;
         top: {{$qr_y}}px;
         left: {{$qr_x}}px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .qr img{
+        margin: 0 auto !important;
     }
 
     .user_name {
