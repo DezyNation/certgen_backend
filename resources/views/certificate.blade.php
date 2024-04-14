@@ -32,6 +32,11 @@
         padding: 0;
         box-sizing: border-box;
     }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url('/Poppins-Medium.ttf');
+    }
     .certificate {
         position: relative;
     }
