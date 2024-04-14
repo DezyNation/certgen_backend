@@ -161,7 +161,7 @@ class CertificateController extends Controller
 
     public function myCertificates($id)
     {
-        $submission = Submission::where(['approved' => 1])->where(function ($q) use ($id) {
+        $submission = Submission::where(['approved' => 1])->whereNotNull('form_id')->where(function ($q) use ($id) {
             $q->where('student_id', $id)
                 ->orWhere('email', $id);
         })->with('form.template')->paginate(30);
