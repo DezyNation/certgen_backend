@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cerificate</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 </head>
 
 <body>
@@ -25,25 +28,38 @@
 </html>
 
 <style>
-    @page { size: 1500px 1061px; }
+    @page {
+        size: 1500px 1061px;
+    }
 
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    @font-face {
-        font-family: 'Poppins';
-        src: url('/Poppins-Medium.ttf');
-    }
     .certificate {
         position: relative;
     }
+
     .qr {
         position: absolute;
-        top: {{$qr_y}}px;
-        left: {{$qr_x}}px;
+
+        top: {
+                {
+                $qr_y
+            }
+        }
+
+        px;
+
+        left: {
+                {
+                $qr_x
+            }
+        }
+
+        px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
@@ -55,19 +71,79 @@
 
     .user_name {
         position: absolute;
-        top: {{$name_y}}px;
-        left: {{$name_x}}px;
-        font-size: {{$name_size}}px;
-        color: {{$receiver_name_color}};
-        font-family: 'Poppins', sans-serif;
+
+        top: {
+                {
+                $name_y
+            }
+        }
+
+        px;
+
+        left: {
+                {
+                $name_x
+            }
+        }
+
+        px;
+
+        font-size: {
+                {
+                $name_size
+            }
+        }
+
+        px;
+
+        color: {
+                {
+                $receiver_name_color
+            }
+        }
+
+        ;
+        font-family: 'Poppins',
+        sans-serif;
         font-weight: 500;
     }
 
     .event_name {
         position: absolute;
-        top: {{$event_y}}px;
-        left: {{$event_x}}px;
-        font-size: {{$event_size}}px;
-        color: {{$event_name_color}};
+
+        top: {
+                {
+                $event_y
+            }
+        }
+
+        px;
+
+        left: {
+                {
+                $event_x
+            }
+        }
+
+        px;
+
+        font-size: {
+                {
+                $event_size
+            }
+        }
+
+        px;
+
+        color: {
+                {
+                $event_name_color
+            }
+        }
+
+        ;
+        font-family: 'Poppins',
+        sans-serif;
+        font-weight: 500;
     }
 </style>
