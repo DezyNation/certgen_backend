@@ -31,7 +31,7 @@
     }
 
     @font-face {
-        font-family: Poppins;
+        font-family: 'Poppins';
         src: url('/Poppins.ttf');
     }
     * {
