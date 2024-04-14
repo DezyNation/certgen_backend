@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ResponseExport;
-use App\Http\Resources\GeneralResource;
 use App\Models\Submission;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Exports\ResponseExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Resources\GeneralResource;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class SubmissionController extends Controller
@@ -45,7 +46,7 @@ class SubmissionController extends Controller
         }
 
         $data = Submission::create([
-            'certificate_id' => uniqid("itas"),
+            'certificate_id' => "iTAS" . Str::random(8),
             'student_id' => $request->student_id,
             'form_id' => $request->form_id,
             'data' => json_encode($request->all()),

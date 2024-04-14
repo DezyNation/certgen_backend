@@ -15,7 +15,7 @@
             <div style="width: 100%; display: grid; place-content: center;">
                 <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
             </div>
-            <p style="text-align: center; font-size: 12px; margin-top: 4px; text-transform: uppercase;">{{$certificate_id}}</p>
+            <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{$certificate_id}}</p>
         </div>
         <h1 class="user_name">{{$user_name}}</h1>
         <h5 class="event_name">{{$event_name}}</h5>
@@ -46,9 +46,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-    .qr img{
-        margin: 0 auto !important;
     }
 
     .user_name {
