@@ -32,7 +32,7 @@
 
     @font-face {
         font-family: 'Poppins';
-        src: url('/Poppins.ttf');
+        src: url('/public/Poppins.ttf');
     }
     * {
         margin: 0;
