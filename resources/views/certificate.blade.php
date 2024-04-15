@@ -61,6 +61,7 @@
         left: {{$name_x}}px;
         font-size: {{$name_size}}px;
         color: {{$receiver_name_color}};
+        text-align: center;
     }
 
     .event_name {
@@ -69,5 +70,6 @@
         left: {{$event_x}}px;
         font-size: {{$event_size}}px;
         color: {{$event_name_color}};
+        text-align: center;
     }
 </style>
