@@ -60,7 +60,7 @@
 
     .user_name{
         position: absolute;
-        width: 100vw;
+        width: 1500px !important;
         background-color: yellow;
         top: {{$name_y}}px;
         left: 0;
