@@ -20,8 +20,11 @@
             </div>
             <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{$certificate_id}}</p>
         </div>
-        <h1 class="user_name">{{$user_name}}</h1>
-        <h5 class="event_name">{{$event_name}}</h5>
+        <div class="user_name">
+            <h1 style="text-align: center;">{{$user_name}}</h1>
+        </div>
+            <h5 class="event_name">{{$event_name}}</h5>
+
     </div>
 </body>
 
@@ -55,10 +58,14 @@
         justify-content: center;
     }
 
-    .user_name {
+    .user_name{
         position: absolute;
         top: {{$name_y}}px;
         left: {{$name_x}}px;
+        display: grid;
+        place-content: center;
+    }
+    .user_name > h1 {
         font-size: {{$name_size}}px;
         color: {{$receiver_name_color}};
         text-align: center;
