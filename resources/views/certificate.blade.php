@@ -20,7 +20,7 @@
             </div>
             <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{$certificate_id}}</p>
         </div>
-        <div class="user_name" style="width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="user_name" style="width: 1500px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
             <h1 style="text-align: center; font-family: Poppins sans-serif;">{{$user_name}}</h1>
         </div>
             <h5 class="event_name">{{$event_name}}</h5>
