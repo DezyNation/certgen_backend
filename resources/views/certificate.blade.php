@@ -19,7 +19,7 @@
         </div>
         <div class="user_name"
             style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <h1 style="text-align: center;">{{ $user_name }}</h1>
+            <h1 style="text-align: center;">Test</h1>
         </div>
         <h5 class="event_name">{{ $event_name }}</h5>
 
