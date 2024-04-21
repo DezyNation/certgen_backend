@@ -65,7 +65,7 @@
     .user_name {
         position: absolute;
         width: 1500px !important;
-        top: {{ $name_y }} px;
+        top: {{ $name_y }}px;
         left: 0;
         display: flex;
         flex-direction: column;
@@ -74,7 +74,7 @@
     }
 
     .user_name>h1 {
-        font-size: {{ $name_size }} px;
+        font-size: {{ $name_size }}px;
 
         color: {{ $receiver_name_color }};
         text-align: center;
