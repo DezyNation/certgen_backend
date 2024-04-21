@@ -16,14 +16,15 @@
         <img src={{ asset($image) }}>
         <div class="qr">
             <div style="width: 100%; display: grid; place-content: center;">
-                <img src="data:image/png;base64, {{ $qrcode}}" alt="QR Code">
+                <img src="data:image/png;base64, {{ $qrcode }}" alt="QR Code">
             </div>
-            <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{$certificate_id}}</p>
+            <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{ $certificate_id }}</p>
         </div>
-        <div class="user_name" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <h1 style="text-align: center; font-family: Poppins sans-serif;">{{$user_name}}</h1>
+        <div class="user_name"
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h1 style="text-align: center;">{{ $user_name }}</h1>
         </div>
-        <h5 class="event_name">{{$event_name}}</h5>
+        <h5 class="event_name">{{ $event_name }}</h5>
 
     </div>
 </body>
@@ -53,21 +54,9 @@
     .qr {
         position: absolute;
 
-        top: {
-                {
-                $qr_y
-            }
-        }
+        top: {{ $qr_y }} px;
 
-        px;
-
-        left: {
-                {
-                $qr_x
-            }
-        }
-
-        px;
+        left: {{ $qr_x }} px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
@@ -81,71 +70,29 @@
         position: absolute;
         width: 1500px !important;
 
-        top: {
-                {
-                $name_y
-            }
-        }
-
-        px;
+        top: {{ $name_y }} px;
         left: 0;
         display: grid;
         place-content: center;
     }
 
     .user_name>h1 {
-        font-size: {
-                {
-                $name_size
-            }
-        }
+        font-size: {{ $name_size }} px;
 
-        px;
-
-        color: {
-                {
-                $receiver_name_color
-            }
-        }
-
-        ;
+        color: {{ $receiver_name_color }};
         text-align: center;
     }
 
     .event_name {
         position: absolute;
 
-        top: {
-                {
-                $event_y
-            }
-        }
+        top: {{ $event_y }}px;
 
-        px;
+        left: {{ $event_x }}px;
 
-        left: {
-                {
-                $event_x
-            }
-        }
+        font-size: {{ $event_size }}px;
 
-        px;
-
-        font-size: {
-                {
-                $event_size
-            }
-        }
-
-        px;
-
-        color: {
-                {
-                $event_name_color
-            }
-        }
-
-        ;
+        color: {{ $event_name_color }};
         text-align: center;
     }
 </style>
