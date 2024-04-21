@@ -13,7 +13,7 @@
         <img src={{ asset($image) }}>
         <div class="qr">
             <div style="width: 100%; display: grid; place-content: center;">
-                <img src="data:image/png;base64, {{ $data['qrcode'] }}" alt="QR Code">
+                <img src="data:image/png;base64, {{ $qrcode }}" alt="QR Code">
             </div>
             <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{ $certificate_id }}</p>
         </div>
