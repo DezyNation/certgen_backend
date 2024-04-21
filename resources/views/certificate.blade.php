@@ -51,9 +51,9 @@
     .qr {
         position: absolute;
 
-        top: {{ $qr_y }} px;
+        top: {{ $qr_y }}px;
 
-        left: {{ $qr_x }} px;
+        left: {{ $qr_x }}px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
