@@ -153,9 +153,9 @@ class CertificateController extends Controller
             'event_name_color' => $template->event_name_color,
             'receiver_name_color' => $template->receiver_name_color,
         ];
+        return view('certificate', $data);
         $pdf = Pdf::loadView('certificate', $data);
         return $pdf->stream();
-        return view('certificate', $data);
 
     }
 
