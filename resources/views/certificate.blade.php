@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cerificate</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-</style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <div class="user_name" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
             <h1 style="text-align: center; font-family: Poppins sans-serif;">{{$user_name}}</h1>
         </div>
-            <h5 class="event_name">{{$event_name}}</h5>
+        <h5 class="event_name">{{$event_name}}</h5>
 
     </div>
 </body>
@@ -33,6 +33,11 @@
 <style>
     @page {
         size: 1500px 1061px;
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url('https://api.itasinc.in/Poppins-Medium.ttf');
     }
 
     * {
@@ -47,8 +52,22 @@
 
     .qr {
         position: absolute;
-        top: {{$qr_y}}px;
-        left: {{$qr_x}}px;
+
+        top: {
+                {
+                $qr_y
+            }
+        }
+
+        px;
+
+        left: {
+                {
+                $qr_x
+            }
+        }
+
+        px;
         padding: 8px;
         background-color: #FFF;
         color: #000;
@@ -58,26 +77,75 @@
         justify-content: center;
     }
 
-    .user_name{
+    .user_name {
         position: absolute;
         width: 1500px !important;
-        top: {{$name_y}}px;
+
+        top: {
+                {
+                $name_y
+            }
+        }
+
+        px;
         left: 0;
         display: grid;
         place-content: center;
     }
-    .user_name > h1 {
-        font-size: {{$name_size}}px;
-        color: {{$receiver_name_color}};
+
+    .user_name>h1 {
+        font-size: {
+                {
+                $name_size
+            }
+        }
+
+        px;
+
+        color: {
+                {
+                $receiver_name_color
+            }
+        }
+
+        ;
         text-align: center;
     }
 
     .event_name {
         position: absolute;
-        top: {{$event_y}}px;
-        left: {{$event_x}}px;
-        font-size: {{$event_size}}px;
-        color: {{$event_name_color}};
+
+        top: {
+                {
+                $event_y
+            }
+        }
+
+        px;
+
+        left: {
+                {
+                $event_x
+            }
+        }
+
+        px;
+
+        font-size: {
+                {
+                $event_size
+            }
+        }
+
+        px;
+
+        color: {
+                {
+                $event_name_color
+            }
+        }
+
+        ;
         text-align: center;
     }
 </style>
