@@ -33,10 +33,10 @@
         size: 1500px 1061px;
     }
 
-    /* @font-face {
+    @font-face {
         font-family: 'Poppins';
         src: url('https://api.itasinc.in/Poppins-Medium.ttf');
-    } */
+    }
 
     * {
         margin: 0;
