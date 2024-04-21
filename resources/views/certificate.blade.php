@@ -17,8 +17,7 @@
             </div>
             <p style="text-align: center; font-size: 12px; margin-top: 4px;">{{ $certificate_id }}</p>
         </div>
-        <div class="user_name"
-            style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="user_name">
             <h1 style="text-align: center;">{{ $user_name }}</h1>
         </div>
         <h5 class="event_name">{{ $event_name }}</h5>
@@ -66,11 +65,12 @@
     .user_name {
         position: absolute;
         width: 1500px !important;
-
         top: {{ $name_y }} px;
         left: 0;
-        display: grid;
-        place-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .user_name>h1 {
