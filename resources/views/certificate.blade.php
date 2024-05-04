@@ -80,18 +80,14 @@
     }
 
     .event_name {
-        position: absolute;
-
-        top: {{ $event_y }}px;
-
-        left: {{ $event_x }}px;
-
-        font-size: {{ $event_size }}px;
-
-        color: {{ $event_name_color }};
-        text-align: center;
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         font-style: normal;
+        position: absolute;
+        top: {{ $event_y }}px;
+        left: {{ $event_x }}px;
+        font-size: {{ $event_size }}px;
+        color: {{ $event_name_color }};
+        text-align: center;
     }
 </style>
